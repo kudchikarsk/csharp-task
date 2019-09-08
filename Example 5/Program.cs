@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Example_5
@@ -7,7 +8,7 @@ namespace Example_5
     {
         static void Main(string[] args)
         {
-            Task<Int32[]> parent = Task.Run(() =>
+            Task<Int32[]> parent = new Task<int[]>(() =>
             {
                 var results = new Int32[3];
                 new Task(() => results[0] = 0,
@@ -18,12 +19,14 @@ namespace Example_5
                 TaskCreationOptions.AttachedToParent).Start();
                 return results;
             });
+            parent.Start();
             var finalTask = parent.ContinueWith(
             parentTask => {
                 foreach (int i in parentTask.Result)
                     Console.WriteLine(i);
             });
             finalTask.Wait();
+            Console.ReadLine();
         }
     }
 }
