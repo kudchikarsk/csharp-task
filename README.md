@@ -1,7 +1,7 @@
 # C# Task Demo
 
 
-This solution is a part of tutorial [C# Task](https://kudchikarsk.com/tasks-in-csharp/csharp-task/)
+This solution is a part of tutorial [C# Task](https://codewithshadman.com/strategy-pattern-csharp/)
 
 
 Solution contains various Windows Forms App / Console App Project for different multithreading concepts in C#.
